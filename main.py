@@ -12,10 +12,10 @@ class App(tk.Tk):
         # Set widgets
         self.file_label = tk.Label(text='Select a file:')
         self.selected_file_label = tk.Label(text="")
-        self.open_file_button = tk.Button(text='Open File', command=open_file_dialog)
+        self.open_file_button = tk.Button(text='Open File', command=self.open_file_dialog)
         self.watermark_text_label = tk.Label(text="Watermark text:")
         self.watermark_entry = tk.Entry()
-        self.add_watermark_button = tk.Button(text='Go', command=do_the_thing)
+        self.add_watermark_button = tk.Button(text='Go', command=self.do_the_thing)
 
         # Place widgets
         self.file_label.grid(row=1, column=0, sticky='E')
