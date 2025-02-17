@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import filedialog, ttk
+from tkinter import filedialog, ttk, colorchooser
 from PIL import Image, ImageFont, ImageDraw
 
 class App(tk.Tk):
@@ -8,7 +8,7 @@ class App(tk.Tk):
 
         self.r, self.g, self.b = (255, 255, 255)
         self.filepath = ''
-        pts = [num for num in range(1, 301)]
+        pts = [num for num in range(1, 256)]
 
         # Set title heading
         self.title_label = tk.Label(text="Watermarker: A watermarking tool")
@@ -63,7 +63,7 @@ class App(tk.Tk):
 
         font = ImageFont.truetype('Arial', int(font_size))
         d = ImageDraw.Draw(txt)
-        d.text((image.size[0]/2, image.size[1]/2), text, fill=(255,255,255,128), font=font)
+        d.text((image.size[0]/2, image.size[1]/2), text, fill=(self.r, self.g, self.b, 128), font=font)
         combined = Image.alpha_composite(image, txt)
 
         combined.show()
