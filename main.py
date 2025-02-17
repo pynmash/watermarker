@@ -49,7 +49,7 @@ class App(tk.Tk):
 
         font = ImageFont.truetype('Arial', int(font_size))
         d = ImageDraw.Draw(txt)
-        d.text((50, image.size[1]/2), text, fill=(255,255,255,128), font=font)
+        d.text((image.size[0]/2, image.size[1]/2), text, fill=(255,255,255,128), font=font)
         combined = Image.alpha_composite(image, txt)
 
         combined.show()
