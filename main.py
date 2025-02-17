@@ -72,10 +72,11 @@ class App(tk.Tk):
 # Window stuff
 window = App()
 window.title("Watermarker")
-window.minsize(width=500, height=100)
+window.minsize(width=600, height=150)
 window.grid_columnconfigure(0, pad=20)
 window.grid_columnconfigure(1, weight=1)
 window.grid_columnconfigure(2, pad=20)
+window.grid_columnconfigure(4, pad=20)
 
 
 
