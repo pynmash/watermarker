@@ -1,12 +1,36 @@
 import tkinter as tk
 from tkinter import filedialog
 
-def open_file_dialog():
-    file = filedialog.askopenfile()
-    selected_file_label.config(text=file.name)
+class App(tk.Tk):
+    def __init__(self):
+        super().__init__()
 
-def do_the_thing():
-    text = watermark_entry.get()
+        # Set title heading
+        self.title_label = tk.Label(text="Watermarker: A watermarking tool")
+        self.title_label.grid(row=0, column=1)
+
+        # Set widgets
+        self.file_label = tk.Label(text='Select a file:')
+        self.selected_file_label = tk.Label(text="")
+        self.open_file_button = tk.Button(text='Open File', command=open_file_dialog)
+        self.watermark_text_label = tk.Label(text="Watermark text:")
+        self.watermark_entry = tk.Entry()
+        self.add_watermark_button = tk.Button(text='Go', command=do_the_thing)
+
+        # Place widgets
+        self.file_label.grid(row=1, column=0, sticky='E')
+        self.selected_file_label.grid(row=1, column=1, columnspan=1)
+        self.open_file_button.grid(row=1, column=2)
+        self.watermark_text_label.grid(row=2, column=0, sticky='E')
+        self.watermark_entry.grid(row=2, column=1, sticky='nsew')
+        self.add_watermark_button.grid(row=2, column=2, sticky='E', padx=10)
+
+        def open_file_dialog(self):
+            file = filedialog.askopenfile()
+            self.selected_file_label.config(text=file.name)
+
+        def do_the_thing(self):
+            text = self.watermark_entry.get()
 
 # Window stuff
 window = tk.Tk()
@@ -18,25 +42,6 @@ window.grid_columnconfigure(2, pad=20)
 
 
 
-# Set title heading
-title_label = tk.Label(text="Watermarker: A watermarking tool")
-title_label.grid(row=0, column=1)
-
-# Set widgets
-file_label = tk.Label(text='Select a file:')
-selected_file_label = tk.Label(text="")
-open_file_button = tk.Button(window, text='Open File', command=open_file_dialog)
-watermark_text_label = tk.Label(text="Watermark text:")
-watermark_entry = tk.Entry()
-add_watermark_button = tk.Button(window, text='Go', command=do_the_thing)
-
-# Place widgets
-file_label.grid(row=1, column=0, sticky='E')
-selected_file_label.grid(row=1, column=1, columnspan=1)
-open_file_button.grid(row=1, column=2)
-watermark_text_label.grid(row=2, column=0, sticky='E')
-watermark_entry.grid(row=2, column=1, sticky='nsew')
-add_watermark_button.grid(row=2, column=2, sticky='E', padx=10)
 
 # This keeps the window open. Make sure it stays at the bottom of the file
 window.mainloop()
