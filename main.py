@@ -25,15 +25,18 @@ class App(tk.Tk):
         self.watermark_entry.grid(row=2, column=1, sticky='nsew')
         self.add_watermark_button.grid(row=2, column=2, sticky='E', padx=10)
 
-        def open_file_dialog(self):
-            file = filedialog.askopenfile()
-            self.selected_file_label.config(text=file.name)
+    def open_file_dialog(self):
+        file = filedialog.askopenfile()
+        self.selected_file_label.config(text=file.name)
 
-        def do_the_thing(self):
-            text = self.watermark_entry.get()
+    def do_the_thing(self):
+        text = self.watermark_entry.get()
+
+    def add_watermark(self):
+        pass
 
 # Window stuff
-window = tk.Tk()
+window = App()
 window.title("Watermarker")
 window.minsize(width=500, height=100)
 window.grid_columnconfigure(0, pad=20)
