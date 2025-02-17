@@ -7,12 +7,15 @@ def open_file_dialog():
 
 def do_the_thing():
     text = watermark_entry.get()
-    selected_file_label.config(text=text)
 
 # Window stuff
 window = tk.Tk()
 window.title("Watermarker")
 window.minsize(width=500, height=100)
+window.grid_columnconfigure(0, pad=20)
+window.grid_columnconfigure(1, weight=1)
+window.grid_columnconfigure(2, pad=20)
+
 
 
 # Set title heading
