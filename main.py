@@ -1,4 +1,13 @@
 import tkinter as tk
+from tkinter import filedialog
+
+def open_file_dialog():
+    file = filedialog.askopenfile()
+    selected_file_label.config(text=file.name)
+
+def do_the_thing():
+    text = watermark_entry.get()
+    selected_file_label.config(text=text)
 
 # Window stuff
 window = tk.Tk()
